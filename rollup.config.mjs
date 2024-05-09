@@ -1,19 +1,22 @@
-import peerDepsExternal from "rollup-plugin-peer-deps-external";
-import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
+import resolve from "@rollup/plugin-node-resolve";
 import typescript from "@rollup/plugin-typescript";
 import dts from "rollup-plugin-dts";
-import tailwind from "rollup-plugin-tailwindcss";
+import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import postcss from "rollup-plugin-postcss";
 import { terser } from "rollup-plugin-terser";
+import tailwindcss from "tailwindcss";
+import autoprefixer from "autoprefixer";
 
 import { createRequire } from "node:module";
 const requireFile = createRequire(import.meta.url);
 const packageJson = requireFile("./package.json");
 
+const extensions = [".js", ".jsx", ".ts", ".tsx", ".css"];
+
 export default [
   {
-    input: "src/index.ts",
+    input: "./src/index.ts",
     output: [
       {
         file: packageJson.main,
@@ -26,25 +29,23 @@ export default [
         sourcemap: true,
       },
     ],
+    watch: {
+      include: "*",
+      exclude: "node_modules/**",
+    },
     plugins: [
       peerDepsExternal(),
-      resolve(),
-      commonjs(),
+      resolve({ extensions }),
+      commonjs({ include: "/node_modules/**" }),
       typescript(),
       postcss({
-        extensions: [".css"],
-      }),
-      tailwind({
-        input: [".css"],
-        purge: false,
+        minimize: true,
+        modules: true,
+        extract: true,
+        plugins: [tailwindcss, autoprefixer],
       }),
       terser(),
     ],
-  },
-  {
-    input: "dist/index.d.ts",
-    output: [{ file: "dist/index.d.ts", format: "es" }],
-    plugins: [dts()],
-    external: [/\.s[ac]ss$/],
+    external: ["react", "react-dom"],
   },
 ];

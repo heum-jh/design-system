@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import TaskList from "./TaskList";
+import TaskList from "../../components/TaskList";
 import { fn } from "@storybook/test";
 import React from "react";
 

@@ -1,5 +1,5 @@
 import React from "react";
-interface ButtonProps {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     primary?: boolean;
     backgroundColor?: string;
     size?: "small" | "medium" | "large";

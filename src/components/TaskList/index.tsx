@@ -1,13 +1,13 @@
 
 import React from 'react';
-import Task, { SkeletonTask, TaskType } from './Task';
+import { Task, SkeletonTask, TaskType } from '../Task';
 type TaskListProps = {
     loading?: boolean;
     tasks: TaskType[];
     onPinTask: (id: string, state: boolean) => void;
     onArchiveTask: (id: string) => void;
 };
-export default function TaskList({ loading = false, tasks, onPinTask, onArchiveTask }: TaskListProps) {
+export const TaskList = ({ loading = false, tasks, onPinTask, onArchiveTask }: TaskListProps) => {
     const events = {
         onPinTask,
         onArchiveTask,

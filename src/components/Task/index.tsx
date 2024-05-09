@@ -1,4 +1,4 @@
-import React, { ChangeEvent, MouseEvent } from 'react';
+import React, { ChangeEvent } from 'react';
 export type TaskType = {
     id: string;
     title: string;
@@ -9,9 +9,9 @@ type TaskProps = {
     onPinTask: (id: string, state: boolean) => void;
     onArchiveTask: (id: string, state: boolean) => void;
 }
-export function SkeletonTask() {
+export const SkeletonTask = () => {
     return (
-        <div data-placeholder className="flex items-center gap-6 p-4 cursor-pointer">
+        <div data-placeholder className="flex items-center gap-6 p-4 bg-white cursor-pointer">
             <div className="flex-grow-0 flex-shrink-0 w-4 basis-auto">
                 <div className="w-4 h-4 border border-cyan-500 animate-pulse" />
             </div>
@@ -22,7 +22,7 @@ export function SkeletonTask() {
         </div>
     );
 }
-export default function Task({ task, onPinTask, onArchiveTask }: TaskProps) {
+export const Task = ({ task, onPinTask, onArchiveTask }: TaskProps) => {
     const [isArchive, setIsArchive] = React.useState(task.state === "archive");
 
     const handleArchiveTask = (e: ChangeEvent<HTMLInputElement>) => {
@@ -35,7 +35,7 @@ export default function Task({ task, onPinTask, onArchiveTask }: TaskProps) {
     }
 
     return (
-        <label className='flex items-center gap-6 p-4 cursor-pointer'>
+        <label className='flex items-center gap-6 p-4 bg-white cursor-pointer'>
             <div className='flex-grow-0 flex-shrink-0 basis-auto'>
                 <input type="checkbox" name={task.id} className="sr-only peer" onChange={handleArchiveTask} defaultChecked={task.state === "archive"} />
                 <div className='w-4 h-4 border border-cyan-500 peer-checked:bg-cyan-500 peer-checked:border-none' />

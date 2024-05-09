@@ -1,5 +1,8 @@
-import { Page } from "./stories/Page/Page";
-import { Header } from "./stories/Header/Header";
-import { Button } from "./stories/Button/Button";
-export { Button, Header, Page };
+import "./styles/tailwind.css";
+export { Page } from "./components/Page";
+export { Header } from "./components/Header";
+export { Button } from "./components/Button";
+export { TaskList } from "./components/TaskList";
+export { Task, SkeletonTask } from "./components/Task";
+export { Input } from "./components/Input";
 //# sourceMappingURL=index.js.map

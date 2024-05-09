@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Page } from "./Page";
+import { Page } from "../../components/Page";
 declare const meta: Meta<typeof Page>;
 export default meta;
 type Story = StoryObj<typeof meta>;

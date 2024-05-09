@@ -1,6 +1,6 @@
 import { __awaiter } from "tslib";
 import { within, userEvent, expect } from "@storybook/test";
-import { Page } from "./Page";
+import { Page } from "../../components/Page";
 const meta = {
     title: "Example/Page",
     component: Page,
