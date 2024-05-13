@@ -1,6 +1,6 @@
 {
   "name": "@heum-jh/react-storybook-rollup-design-system",
-  "version": "1.0.17",
+  "version": "1.0.18",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
@@ -54,6 +54,6 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "build-tailwind": "NODE_ENV=production npx tailwindcss -i ./src/styles/tailwind.css -o ./dist/index.css --minify",
-    "build-publish": "yarn build && yarn build-tailwind && yarn publish --access public"
+    "build-publish": "yarn build && yarn publish --access public"
   }
 }
