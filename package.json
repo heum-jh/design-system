@@ -1,11 +1,12 @@
 {
   "name": "@heum-jh/react-storybook-rollup-design-system",
-  "version": "1.0.24",
+  "version": "1.0.25",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
   "license": "MIT",
   "devDependencies": {
+    "@modular-css/rollup": "^29.0.5",
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.6",
