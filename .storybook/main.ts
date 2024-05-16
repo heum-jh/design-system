@@ -1,5 +1,6 @@
 import type { StorybookConfig } from "@storybook/react-webpack5";
 
+const isProduction = process.env.NODE_ENV === 'production';
 const config: StorybookConfig = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
   addons: [
@@ -10,25 +11,14 @@ const config: StorybookConfig = {
     "@chromatic-com/storybook",
     "@storybook/addon-interactions",
     {
-      name: "@storybook/addon-styling-webpack",
+      name: "storybook-css-modules",
       options: {
-        rules: [
-          {
-            test: /\.css$/,
-            use: [
-              "style-loader",
-              {
-                loader: "css-loader",
-                options: { importLoaders: 2 },
-              },
-              {
-                loader: "postcss-loader",
-                options: { implementation: require.resolve("postcss") },
-              },
-            ],
-          },
-        ],
-      },
+        cssModulesLoaderOptions: {
+          modules: {
+            localIdentName: isProduction? "[hash:base64:5]" : "[local]"
+          }
+        }
+      }
     },
   ],
   framework: {
@@ -40,3 +30,7 @@ const config: StorybookConfig = {
   },
 };
 export default config;
+
+
+
+
