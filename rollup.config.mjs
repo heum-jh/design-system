@@ -39,7 +39,7 @@ export default [
         },
         autoModules: false,
       }),
-      terser(),
+      // terser(),
     ],
     external: ["react", "react-dom"],
   },

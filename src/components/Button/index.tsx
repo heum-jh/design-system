@@ -9,9 +9,6 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   onClick?: () => void;
 }
 
-/**
- * Primary UI component for user interaction
- */
 const Button = ({ primary = false, size = "medium", backgroundColor, label, ...props }: ButtonProps) => {
 
   return (
