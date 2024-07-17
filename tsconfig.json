@@ -17,15 +17,17 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react",
-    "incremental": true,
+    "incremental": false,
     "strictNullChecks": true,
     "removeComments": true,
     "noImplicitAny": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "typeRoots": ["./typings"],
+    "plugins": [{ "name": "typescript-plugin-css-modules" }],
   },
-  "include": ["src"],
-  "exclude": ["node_modules", "dist", "rollup.config.js", "**/*.stories.tsx"]
+  "include": ["src", "typings"],
+  "exclude": ["node_modules", "dist", "rollup.config.mjs", "**/*.stories.tsx"]
 }

@@ -1,11 +1,12 @@
 {
   "name": "@heum-jh/react-storybook-rollup-design-system",
-  "version": "1.0.15",
+  "version": "1.0.31",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
   "license": "MIT",
   "devDependencies": {
+    "@modular-css/rollup": "^29.0.5",
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.6",
@@ -19,37 +20,31 @@
     "@storybook/react": "^8.0.9",
     "@storybook/react-webpack5": "^8.0.9",
     "@storybook/test": "^8.0.9",
+    "@types/classnames": "^2.3.1",
     "@types/react": "^18.3.1",
     "autoprefixer": "^10.4.19",
-    "chromatic": "^11.3.0",
     "clsx": "^2.1.1",
-    "css-loader": "^7.1.1",
     "eslint": "^9.1.1",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^5.1.3",
     "postcss": "^8.4.38",
-    "postcss-loader": "^8.1.1",
     "prettier": "^3.2.5",
-    "prettier-plugin-tailwindcss": "^0.5.14",
     "rollup": "^4.17.2",
     "rollup-plugin-dts": "^6.1.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
-    "rollup-plugin-tailwindcss": "^1.0.0",
     "rollup-plugin-terser": "^7.0.2",
     "storybook": "^8.0.9",
-    "tailwindcss": "^3.4.3",
-    "typescript": "^5.4.5"
+    "storybook-css-modules": "^1.0.8",
+    "typescript": "^5.4.5",
+    "typescript-plugin-css-modules": "^5.1.0"
   },
   "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "scripts": {
-    "build": "rollup -c --environment BUILD:production",
+    "build": "rm -rf dist && rollup -c --environment BUILD:production",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "build-tailwind": "NODE_ENV=production npx tailwindcss -i ./src/styles/tailwind.css -o ./dist/index.css --minify",
-    "build-publish": "yarn build && yarn build-tailwind && yarn publish --access public"
+    "build-publish": "yarn build && yarn publish --access public"
   }
 }

@@ -11,7 +11,7 @@ import { createRequire } from "node:module";
 const requireFile = createRequire(import.meta.url);
 const packageJson = requireFile("./package.json");
 
-const extensions = [".js", ".jsx", ".ts", ".tsx", ".css"];
+const extensions = [".ts", ".tsx"];
 
 export default {
   input: "./src/index.ts",
